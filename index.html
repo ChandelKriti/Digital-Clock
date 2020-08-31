@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock with Moment.js</title>
+    <link rel="stylesheet" href="http://youtube.local/assets/decode.css">
+    <link rel="shortcut icon" href="http://youtube.local/assets/favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Contrail+One');
+
+        #clock{
+            width: 300px;
+            height: 100px;
+            background-color: black;
+            border-radius: 5px;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            color: greenyellow;
+            font-family: 'Contrail One',sans-serif;
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital clock with Moment.js</h1>
+
+    <div id ="clock">8:23 pm</div>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+    <script>
+
+        const clock = document.getElementById('clock');
+
+        function updateTime () {
+            const now = moment();
+            const humanReadable =  now.format('hh:mm:ssA'); 
+
+            clock.textContent = humanReadable;
+        }
+
+        setInterval( updateTime, 1000);
+        updateTime();
+
+    </script>
+</body>
+</html>
